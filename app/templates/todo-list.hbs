@@ -1,0 +1,16 @@
+<form {{action 'addTodo' newTodo on='submit'}}>
+  {{input type='text' value=newTodo placeholder='Add todo'}}
+  <input type="submit" value="Add todo" />
+</form>
+{{#if hasTodos}}
+  <ul>
+    {{#each todos as |todo|}}
+      <li>
+        {{todo.name}}
+        <button {{action 'removeTodo' todo}}>Done</button>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>No todos</p>
+{{/if}}
